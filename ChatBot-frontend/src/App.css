@@ -1,38 +1,30 @@
-.App {
-  text-align: center;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%; /* Ensure full height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  position: relative;
+  height: 100%; /* Full viewport height */
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.background {
+  position: fixed;
+  top: 0; /* Align to the top */
+  left: 0; /* Align to the left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  border: none; /* Remove border */
+  z-index: -1; /* Send to back */
+  object-fit: cover; /* Scale the content of the iframe to cover the entire container without stretching */
+  pointer-events: none; /* Prevent interaction with the iframe */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Content on top of the background */
+.router {
+  position: relative; /* Ensure content appears on top of the background */
+  z-index: 1;  /* Keep the content above the background */
 }
