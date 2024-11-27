@@ -4,13 +4,19 @@ import LoginSignup from './LoginSignup/LoginSignup';
 import HomePage from './HomePage/HomePage';
 import './App.css';
 
+const iframe = document.querySelector('iframe');
+const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+iframeDoc.documentElement.style.overflow = 'hidden'; // hides scroll
+iframeDoc.body.style.overflow = 'hidden'; // hides scroll
+iframe.style.pointerEvents = 'none';
+
 const App = () => {
     return (
-        <div className='h-auto w-full overflow-hidden container'>
+        <div>
             <iframe 
-                src='/particles.js-master/demo/index.html'
-                className='background'
-                title='Background'
+                    src='/particles.js-master/demo/index.html'
+                    className='background'
+                    title='Background'
             />
             <Router>
                 <Routes>

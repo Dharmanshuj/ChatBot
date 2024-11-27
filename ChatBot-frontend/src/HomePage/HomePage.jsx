@@ -115,40 +115,38 @@ const HomePage = () => {
   };
 
   return (
-    <div className="show-chatbot">
-      <div className="chatbot">
-        <header>
-          <h2>Chatbot</h2>
-        </header>
-        <ul className="chatbox" ref={chatboxRef}>
-          {messages.map((msg, index) => (
-            <li key={index} className={`chat ${msg.type}`}>
-              {msg.type === 'incoming' && (
-                <span className="material-icons">smart_toy</span>
-              )}
-              <p>{msg.text}</p>
-            </li>
-          ))}
-        </ul>
-        <div className="chat-input">
-          <textarea
-            ref={chatInputRef}
-            placeholder="Enter a message..."
-            value={userMessage}
-            onChange={(e) => setUserMessage(e.target.value)}
-            onInput={handleInputResize}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                handleChat();
-              }
-            }}
-          />
-          <button onClick={handleChat}>Send</button>
-          <button onClick={toggleSpeechRecognition}>
-            {isListening ? '🛑 Stop Recording' : '🎤 Start Recording'}
-          </button>
-        </div>
+    <div className="chatbot">
+      <header>
+        <h2>Chatbot</h2>
+      </header>
+      <ul className="chatbox" ref={chatboxRef}>
+        {messages.map((msg, index) => (
+          <li key={index} className={`chat ${msg.type}`}>
+            {msg.type === 'incoming' && (
+              <span className="material-icons">smart_toy</span>
+            )}
+            <p>{msg.text}</p>
+          </li>
+        ))}
+      </ul>
+      <div className="chat-input">
+        <textarea
+          ref={chatInputRef}
+          placeholder="Enter a message..."
+          value={userMessage}
+          onChange={(e) => setUserMessage(e.target.value)}
+          onInput={handleInputResize}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              handleChat();
+            }
+          }}
+        />
+        <button onClick={handleChat}>Send</button>
+        <button onClick={toggleSpeechRecognition}>
+          {isListening ? '🛑 Stop Recording' : '🎤 Start Recording'}
+        </button>
       </div>
     </div>
   );

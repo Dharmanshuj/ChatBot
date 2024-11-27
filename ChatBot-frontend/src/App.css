@@ -5,26 +5,17 @@ html, body {
   width: 100%; /* Ensure full height */
 }
 
-.container {
-  position: relative;
-  height: 100%; /* Full viewport height */
-  width: 100%;
-}
-
 .background {
   position: fixed;
-  top: 0; /* Align to the top */
-  left: 0; /* Align to the left */
+  top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   border: none; /* Remove border */
   z-index: -1; /* Send to back */
-  object-fit: cover; /* Scale the content of the iframe to cover the entire container without stretching */
-  pointer-events: none; /* Prevent interaction with the iframe */
 }
 
 /* Content on top of the background */
-.router {
+.Router {
   position: relative; /* Ensure content appears on top of the background */
   z-index: 1;  /* Keep the content above the background */
 }

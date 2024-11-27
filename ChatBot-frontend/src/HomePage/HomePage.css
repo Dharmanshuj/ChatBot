@@ -25,7 +25,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.show-chatbot .chatbot {
+ .chatbot {
   transform: scale(1);
   opacity: 1;
   pointer-events: auto;
@@ -97,7 +97,7 @@
 
 .chatbot .incoming p {
   color: #000;
-  background: #f4e1b1;
+  background: #fff;
   border-radius: 10px 10px 10px 0;
 }
 
@@ -109,8 +109,8 @@
   gap: 5px;
   padding: 5px 20px;
   border-top: 1px solid #ccc;
-  background-color: #f4e1b1; /* Light butterscotch-like color */
-  border: 1px solid #d68a3f; /* Slightly darker border for contrast */
+  background-color: #fff; /* Light butterscotch-like color */
+  border: 1px solid #fff; /* Slightly darker border for contrast */
   color: #333; /* Dark text for legibility */
   padding: 10px;
   border-radius: 5px;
