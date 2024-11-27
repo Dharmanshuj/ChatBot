@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint to interact with the Gemini fine-tuned model
-app.post('/index', async (req, res) => {
+app.post('/api/chatbot', async (req, res) => {
     const { message } = req.body;
 
     try {
