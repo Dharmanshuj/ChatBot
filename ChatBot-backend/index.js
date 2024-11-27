@@ -4,7 +4,6 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -15,11 +14,11 @@ app.post('/api/chatbot', async (req, res) => {
 
     try {
         const response = await axios.post(
-            `${process.env.REACT_APP_API_URL}`,  // Append key here
+            `${process.env.REACT_APP_API_URL}`, // Append key here
             { contents: [{ parts: [{ text: message }] }] },
             {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 }
             }
         );
@@ -36,6 +35,7 @@ app.post('/api/chatbot', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+module.exports = {
+    app, // Export the app for local usage
+    handler: require('serverless-http')(app), // Export wrapped app for Vercel
+};
