@@ -44,7 +44,7 @@ const HomePage = () => {
 
   const generateResponse = async (message) => {
     try {
-      const response = await fetch('chat-bot-backend-red.vercel.app/index', {
+      const response = await fetch('chatbot-backend-azure.vercel.app/index', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),

@@ -24,8 +24,7 @@ app.post('/index', async (req, res) => {
             {
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                timeout: 8000,
+                }
             }
         );
 
