@@ -6,12 +6,24 @@ const serverless = require('serverless-http');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: (origin, callback) => {
+        const allowedOrigins = [
+            'http://localhost:3000', // Local
+            'chat-bot-frontend-blush.vercel.app', // Replace with your frontend's domain
+        ];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+}));
 app.use(express.json());
 
-// app.get("/", (req, res) => {
-//     res.json("Hello");
-// });
+app.get("/", (req, res) => {
+    res.json("Hello");
+});
 
 // Endpoint to interact with the Gemini fine-tuned model
 app.post('/index', async (req, res) => {
