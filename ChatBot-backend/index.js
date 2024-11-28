@@ -8,6 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
+
 // Endpoint to interact with the Gemini fine-tuned model
 app.post('/index', async (req, res) => {
     const { message } = req.body;
