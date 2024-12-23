@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './HomePage.css';
+import mic from '../Assets/mic.png';
+import rec from '../Assets/icons8-recording-48.png';
+import send from '../Assets/icons8-send-24.png';
 
 const HomePage = () => {
   useEffect(() => {
@@ -44,7 +47,12 @@ const HomePage = () => {
 
   const generateResponse = async (message) => {
     try {
-      const response = await fetch('chatbot-backend-azure.vercel.app/index', {
+      const backendURL =
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3001/index' // Local server URL for development
+        : 'https://chatbot-backend-azure.vercel.app/index'; // Production URL
+
+      const response = await fetch(backendURL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
@@ -66,7 +74,7 @@ const HomePage = () => {
         if (index === botMessage.length) {
           clearInterval(typingInterval);
         }
-      }, 100); // Typing speed (ms)
+      }, 20); // Typing speed (ms)
     } catch (error) {
       console.error('Error:', error);
       setMessages((prevMessages) => [
@@ -143,9 +151,11 @@ const HomePage = () => {
             }
           }}
         />
-        <button onClick={handleChat}>Send</button>
         <button onClick={toggleSpeechRecognition}>
-          {isListening ? '🛑 Stop Recording' : '🎤 Start Recording'}
+          <img src={isListening ? rec : mic} alt="Mic" style={{ width: '30px', height: '30px' }}/>
+        </button>
+        <button onClick={handleChat}>
+          <img src={send} alt="Send" />
         </button>
       </div>
     </div>

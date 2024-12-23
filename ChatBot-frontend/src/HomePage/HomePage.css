@@ -146,6 +146,12 @@
   transition: none;     /* Disable any transition effects */
 }
 
+button{
+  background-color: transparent;
+  border: none;
+  margin: 10px;
+}
+
 
 @media(max-width: 490px) {
   .chatbot {

@@ -6,18 +6,25 @@ const serverless = require('serverless-http');
 
 const app = express();
 
+const allowedOrigins = [
+    'http://localhost:3000', // Local frontend
+    'https://chat-bot-frontend-blush.vercel.app', // Production frontend
+];
+
 app.use(cors({
     origin: (origin, callback) => {
-        const allowedOrigins = [
-            'http://localhost:3000', // Local
-            'chat-bot-frontend-blush.vercel.app', // Replace with your frontend's domain
-        ];
+        // const allowedOrigins = [
+        //     'http://localhost:3001', // Local
+        //     'chat-bot-frontend-blush.vercel.app', // Replace with your frontend's domain
+        // ];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
         }
     },
+    methods: ['GET', 'POST'], // Allow specific methods
+    credentials: true, // Allow cookies, if needed
 }));
 app.use(express.json());
 
@@ -55,6 +62,6 @@ app.post('/index', async (req, res) => {
 if (process.env.IS_SERVERLESS) {
     module.exports = serverless(app); // Default export for serverless deployment
 } else {
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
