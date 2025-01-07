@@ -3,6 +3,8 @@ import './HomePage.css';
 import mic from '../Assets/mic.png';
 import rec from '../Assets/icons8-recording-48.png';
 import send from '../Assets/icons8-send-24.png';
+import speakIcon from '../Assets/icons8-volume-50.png';
+import speakingIcon from '../Assets/icons8-recording-30.png'
 
 const HomePage = () => {
   useEffect(() => {
@@ -18,6 +20,8 @@ const HomePage = () => {
   const initialHeight = useRef(0);
   const speechRecognitionRef = useRef(null);
   const [isListening, setIsListening] = useState(false);
+  const utteranceRef = useRef(null);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   useEffect(() => {
     if (chatInputRef.current) {
@@ -110,6 +114,11 @@ const HomePage = () => {
       };
       speechRecognitionRef.current.onerror = (event) => {
         console.error('Speech recognition error:', event);
+        setIsListening(false);
+      };
+
+      speechRecognitionRef.current.onend = () => {
+        setIsListening(false);
       };
     }
 
@@ -119,6 +128,19 @@ const HomePage = () => {
     } else {
       speechRecognitionRef.current.start();
       setIsListening(true);
+    }
+  };
+
+  const toggleSpeechSynthesis = (text) => {
+    if (utteranceRef.current && window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      utteranceRef.current = null;
+      setIsSpeaking(false);
+    } else if (text) {
+      utteranceRef.current = new SpeechSynthesisUtterance(text);
+      utteranceRef.current.lang = 'en-US';
+      window.speechSynthesis.speak(utteranceRef.current);
+      setIsSpeaking(true);
     }
   };
 
@@ -133,6 +155,9 @@ const HomePage = () => {
             {msg.type === 'incoming' && (
               <span className="material-icons">smart_toy</span>
             )}
+            <button className='speak' onClick={() => toggleSpeechSynthesis(msg.text)}>
+              <img src={isSpeaking? speakingIcon : speakIcon} alt="Speak" style={{ width: '20px', height: '20px' }} />
+            </button>
             <p>{msg.text}</p>
           </li>
         ))}

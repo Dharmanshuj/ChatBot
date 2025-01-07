@@ -152,6 +152,12 @@ button{
   margin: 10px;
 }
 
+.speak {
+  align-self: flex-end;
+  border: none;
+  cursor: pointer;
+}
+
 
 @media(max-width: 490px) {
   .chatbot {
