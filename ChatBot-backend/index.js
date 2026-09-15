@@ -8,7 +8,8 @@ const app = express();
 
 const allowedOrigins = [
     'http://localhost:3000', // Local frontend
-    'https://chat-bot-frontend-blush.vercel.app', // Production frontend
+    'https://chat-bot-frontend-blush.vercel.app', // Production frontend (old)
+    'https://chat-bot-gamma-virid.vercel.app', // Production frontend
 ];
 
 app.use(cors({

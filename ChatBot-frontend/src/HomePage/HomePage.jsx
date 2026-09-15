@@ -54,7 +54,7 @@ const HomePage = () => {
       const backendURL =
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3001/index' // Local server URL for development
-        : 'https://chatbot-backend-azure.vercel.app/index'; // Production URL
+        : 'https://chat-bot-backend-seven.vercel.app/index'; // Production URL
 
       const response = await fetch(backendURL, {
         method: 'POST',
