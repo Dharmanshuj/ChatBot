@@ -1,6 +1,6 @@
 # ChatBot
 
-🔗 **Live app:** [https://chat-bot-dharmanshu.vercel.app](https://chat-bot-dharmanshu.vercel.app/)
+🔗 **Live app:** [https://chat-bot-gamma-virid.vercel.app](https://chat-bot-gamma-virid.vercel.app)
 
 A web-based chatbot that talks to Google's Gemini API. The UI supports typed messages, voice input (speech-to-text), and spoken responses (text-to-speech).
 
