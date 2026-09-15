@@ -2,10 +2,13 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 40px;
     width: 600px;
+    max-height: 92vh;
+    overflow-y: auto;
     background: #fff;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .header {
@@ -14,12 +17,12 @@
     align-items: center;
     gap: 9px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .text {
     color: #4a2c20;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 700;
 }
 
@@ -31,29 +34,29 @@
 }
 
 .inputs {
-    margin-top: 15px;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 18px;
 }
 
 .input {
     display: flex;
     align-items: center;
     margin: auto;
-    width: 480px;
-    height: 80px;
+    width: 420px;
+    height: 58px;
     background: #eaeaea;
     border-radius: 6px;
 }
 
 .input img {
-    margin: 0px 30px;
+    margin: 0px 20px;
 }
 
 .input input {
-    height: 50px;
-    width: 400px;
+    height: 40px;
+    width: 340px;
     background: transparent;
     border: none;
     outline: none;
@@ -63,7 +66,7 @@
 
 .forget-password {
     padding-left: 62px;
-    margin-top: 27px;
+    margin-top: 18px;
     color: #797979;
     font-size: 18px;
 }
@@ -76,15 +79,15 @@
 .submit-container {
     display: flex;
     gap: 0px;
-    margin: 60px auto;
+    margin: 25px auto;
 }
 
 .submit {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 240px;
-    height: 59px;
+    width: 200px;
+    height: 50px;
     color: #fff;
     background: #4a2c20;
     border-radius: 0px;
@@ -114,9 +117,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    margin: 12px auto;
     width: 200px;
-    height: 50px;
+    height: 46px;
     color: #fff;
     background: #4a2c20; /* Same purple color as the main buttons */
     border-radius: 25px; /* Rounded corners */
@@ -178,7 +181,7 @@
 @media (max-width: 768px) {
     .container {
         width: 90%;
-        margin-top: 75px;
+        margin-top: 20px;
     }
     .input {
         width: 80%;

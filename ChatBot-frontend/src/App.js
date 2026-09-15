@@ -11,9 +11,15 @@ const App = () => {
 
     const handleIframeLoad = () => {
       const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      iframeDoc.documentElement.style.overflow = 'hidden'; // hides scroll
-      iframeDoc.body.style.overflow = 'hidden'; // hides scroll
-      iframe.style.pointerEvents = 'none';
+      if (iframeDoc) {
+        // Ensure the content inside iframe fits
+        iframeDoc.documentElement.style.height = '100%';
+        iframeDoc.documentElement.style.width = '100%';
+        iframeDoc.body.style.margin = '0';
+        iframeDoc.body.style.height = '100%';
+        iframeDoc.body.style.width = '100%';
+        iframe.style.pointerEvents = 'none';
+      }
     };
 
     if (iframe) {

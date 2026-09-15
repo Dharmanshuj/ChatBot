@@ -3,19 +3,22 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%; /* Ensure full height */
+  overflow: hidden;
 }
 
 .background {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  height: 100vh; /* Full height */
   border: none; /* Remove border */
   z-index: -1; /* Send to back */
+  object-fit: cover;
 }
 
 /* Content on top of the background */
-.Router {
+div {
   position: relative; /* Ensure content appears on top of the background */
   z-index: 1;  /* Keep the content above the background */
 }
